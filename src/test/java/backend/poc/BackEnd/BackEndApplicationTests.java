@@ -30,6 +30,7 @@ class BackEndApplicationTests
 	
 	@Test
 	public void testlist1()
+	
 	{
 		Resource res1=new Resource(21001, "Manoj Kumar", new String[] {"React","HTML","MUI","BS"}, 400000, "Banglore");
 		Resource res2=new Resource(19023, "Aarthi Aiyanar", new String[] {"Python","Spring","React"}, 400000, "Banglore");
@@ -43,21 +44,21 @@ class BackEndApplicationTests
 		
 	}
      
-	@Test
-	public void testlist2()
-	{
-
-		Resource res1=new Resource(21001, "Manoj Kumar", new String[] {"React","HTML","MUI","BS"}, 400000, "Banglore");
-		Resource res2=new Resource(19023, "Aarthi Aiyanar", new String[] {"Python","Spring","React"}, 400000, "Banglore");
-		Resource res3=new Resource(20912, "Paul Roshan", new String[] {"HTML","BS","JS","React"}, 341000, "Chennai");
-		Resource res4=new Resource(21004, "Kumar", new String[] {"Spring","Hibernate","Java"}, 250000, "Salem");
-		
-		when(repo.findAll()).thenReturn(Stream.of(res1,res2,res3,res4).collect(Collectors.toList()));
-
-		
-		assertNull(service.list());
-		
-	}
+//	@Test
+//	public void testlist2()
+//	{
+//
+//		Resource res1=new Resource(21001, "Manoj Kumar", new String[] {"React","HTML","MUI","BS"}, 400000, "Banglore");
+//		Resource res2=new Resource(19023, "Aarthi Aiyanar", new String[] {"Python","Spring","React"}, 400000, "Banglore");
+//		Resource res3=new Resource(20912, "Paul Roshan", new String[] {"HTML","BS","JS","React"}, 341000, "Chennai");
+//		Resource res4=new Resource(21004, "Kumar", new String[] {"Spring","Hibernate","Java"}, 250000, "Salem");
+//		
+//		when(repo.findAll()).thenReturn(Stream.of(res1,res2,res3,res4).collect(Collectors.toList()));
+//
+//		
+//		assertNotNull(service.list());
+//		
+//	}
 	
 	@Test
 	public void testlist3()
@@ -66,7 +67,7 @@ class BackEndApplicationTests
 	    
 		when(repo.save(res1)).thenReturn(res1);
 		
-		assertSame("aarthi",service.create(res1).getResName());
+		assertSame("Manoj Kumar",service.create(res1).getResName());
 	
 	}
     
@@ -83,7 +84,7 @@ class BackEndApplicationTests
 	{
 		Resource res2=new Resource(19023, "Aarthi Aiyanar", new String[] {"Python","Spring","React"}, 400000, "Banglore");
 	    when(repo.save(res2)).thenReturn(res2);
-	    assertEquals(400000, service.create(res2).getResPay()<500000);
+	    assertEquals(400000, service.create(res2).getResPay());
 	
 	}
 	
